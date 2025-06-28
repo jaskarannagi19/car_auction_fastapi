@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Isuzu Model Finder</title>
+</head>
+<body>
+  <h1>Search Model by Chassis Number</h1>
+  <input type="number" id="chassisNumber" placeholder="Enter number">
+  <button onclick="searchModel()">Find Model</button>
+  <p id="result"></p>
+
+  <script>
+    async function searchModel() {
+      const number = document.getElementById('chassisNumber').value;
+      const res = await fetch(`/get-model?number=${number}`);
+      const data = await res.json();
+      document.getElementById('result').innerText = data.model;
+    }
+  </script>
+</body>
+</html>
