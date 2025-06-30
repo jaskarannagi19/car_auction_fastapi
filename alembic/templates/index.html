@@ -13,8 +13,10 @@
     async function searchModel() {
       const number = document.getElementById('chassisNumber').value;
       const res = await fetch(`/get-model?number=${number}`);
+      
       const data = await res.json();
-      document.getElementById('result').innerText = data.model;
+      
+      document.getElementById('result').innerText = data;
     }
   </script>
 </body>
